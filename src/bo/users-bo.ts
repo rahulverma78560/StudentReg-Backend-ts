@@ -15,7 +15,7 @@ export class UsersBo implements UsersBoContract {
   ) {}
   async regUser(user: User): Promise<any> {
     try {
-      const found = await this.dao.find(user.username);
+      const found = await this.dao.find(user.userName);
       if (found.length) {
         throw new Error("user already exists");
       } else {
@@ -31,7 +31,7 @@ export class UsersBo implements UsersBoContract {
   }
   async validate(user: User): Promise<string> {
     try {
-      const found: any = await this.dao.find(user.username);
+      const found: any = await this.dao.find(user.userName);
       if (found.length) {
         const validatePwd = await bcrypt.compare(
           user.password,

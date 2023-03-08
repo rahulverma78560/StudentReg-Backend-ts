@@ -44,7 +44,7 @@ export class AuthController implements AuthControllerContract {
       const token = await this._userBo.validate(user);
       const response = generateResponse<string>(
         "Authenticated successfully",
-        201,
+        200,
         token
       );
       res.send(response);

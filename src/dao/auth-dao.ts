@@ -20,7 +20,7 @@ export class AuthDao implements AuthDaoContract<User> {
     try {
       const data = JSON.parse(readFileSync(FILE_PATH).toString());
       const user: User[] = data.filter(
-        (user: User) => user.username === userName
+        (user: User) => user.userName === userName
       );
       return user;
     } catch (error) {

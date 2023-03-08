@@ -13,7 +13,7 @@ type PayloadType = {
 };
 
 export const createToken = (user: User): string => {
-  let payloadData: PayloadType = { userName: user.username };
+  let payloadData: PayloadType = { userName: user.userName };
   const payload = payloadData;
   const token = sign(payload, SECRET_KEY, { expiresIn: EXPIRES_IN });
   return token;
